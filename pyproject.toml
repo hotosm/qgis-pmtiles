@@ -5,21 +5,18 @@ description = "QGIS plugin to generate PMTiles."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "pmtiles",
+    "pmtiles>=3.0.0",
 ]
 
-# Can't be used until https://github.com/opengisch/qgis-plugin-ci/issues/350 is looked at
-#[tool.qgis-plugin-ci]
-#plugin_path = "PMTiles"
-#github_organization_slug = "hotosm"
-#project_slug = "qgis-pmtiles"
-
-[tool.uv.sources]
-pmtiles = { path = "../python/pmtiles" }
+[tool.qgis-plugin-ci]
+plugin_path = "PMTiles"
+github_organization_slug = "hotosm"
+project_slug = "qgis-pmtiles"
 
 [dependency-groups]
 dev = [
     "ruff>=0.14.1",
+    "qgis-plugin-ci>=2.8.10",
 ]
 
 [tool.ruff]

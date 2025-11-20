@@ -5,7 +5,16 @@
   raster PMTile files.
 - This plugin is an interim solution to convert MBTiles file into
   PMTiles, using the official Python package.
-- It bundles a vendored `pmtiles` Python package inside the plugin.
+- This plugin uses [QPIP](https://github.com/opengisch/qpip) for dependency management.
+  The `pmtiles` Python package will be automatically installed when the plugin is loaded.
+
+> [!NOTE]
+> Originally, we preferred to vendor a version of the small PMTiles Python package
+> inside this plugin, to ensure it works consistently into the future.
+>
+> This idea was rejected by the QGIS plugin reviewers, so instead QPIP is used.
+>
+> If your version of PMTiles installed doesn't work well with the plugin, sorry!
 
 ## Testing ogr2ogr & GDAL
 
@@ -43,11 +52,31 @@ gdal convert --input myfile.mbtiles --output myfile.pmtiles --output-format "PMT
 > Alternatively, I assume the C++ code in this repo could be used
 > to make a C++ plugin for QGIS too.
 
-## Releasing
+## Building and Releasing
+
+This plugin uses [qgis-plugin-ci](https://github.com/opengisch/qgis-plugin-ci) for automated building and releasing.
+
+### Automated Release (Recommended)
+
+Releases are handled automatically by GitHub Actions when you create a release on GitHub. The workflow will:
+- Build the plugin package
+- Upload it to the QGIS Plugin Repository
+- Create a GitHub release
+
+To release:
+1. Update the version in `pyproject.toml`
+2. Update the version in `PMTiles/metadata.txt`
+3. Create a git tag: `git tag 0.1.0` (matching the version)
+4. Push the tag: `git push origin 0.1.0`
+5. Create a GitHub release from the tag
+
+### Local Building
+
+For local testing, you can use qgis-plugin-ci directly:
 
 ```bash
 uv sync
-uv run python package.py
+uv run qgis-plugin-ci <version_number>
 ```
 
 ## Linting

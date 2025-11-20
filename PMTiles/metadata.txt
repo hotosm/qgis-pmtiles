@@ -19,7 +19,7 @@ about=
 
     This plugin is an interim solution to convert MBTiles file into PMTiles, using the official Python package.
 
-    The `pmtiles` Python package is bundled inside the plugin, do avoid needing externally installed dependencies.
+    This plugin uses QPIP for dependency management. The `pmtiles` Python package will be automatically installed when the plugin is loaded.
 
 changelog=
     v0.1.0 - Initial release
@@ -28,3 +28,4 @@ qgisMinimumVersion=3.40
 supportsQt6=True
 experimental=False
 deprecated=False
+plugin_dependencies=qpip

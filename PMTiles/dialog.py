@@ -14,8 +14,7 @@ from qgis.PyQt.QtWidgets import (
     QVBoxLayout,
 )
 
-# Relative import from vendored pmtiles lib at package time
-from .vendor.pmtiles.convert import mbtiles_to_pmtiles
+from pmtiles.convert import mbtiles_to_pmtiles
 
 
 class PMTilesDialog(QDialog):
