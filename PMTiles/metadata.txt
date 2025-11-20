@@ -22,6 +22,7 @@ about=
     This plugin uses QPIP for dependency management. The `pmtiles` Python package will be automatically installed when the plugin is loaded.
 
 changelog=
+    v0.2.0 - Using qpip package manager.
     v0.1.0 - Initial release
 
 qgisMinimumVersion=3.40
