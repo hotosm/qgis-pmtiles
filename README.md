@@ -43,7 +43,7 @@ gdal convert --input myfile.mbtiles --output myfile.pmtiles --output-format "PMT
 - go-pmtiles (hard to bundle different OS binaries in a plugin).
 - Direct Python library usage (this plugin).
 
-> ![NOTE]
+> [!NOTE]
 > The `go-pmtiles` binary is much more efficient than the Python library.
 >
 > If we find an elegant solution for bundling the binary inside the
